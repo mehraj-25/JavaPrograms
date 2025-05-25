@@ -1,0 +1,205 @@
+/*Aug-24 Batch Today's Practical Task...
+
+Q1. Write a java program to create Vector and perform following operations using switch case and do while.
+
+1. Add 10 Values In Vector.
+2. Display All Values In Vector.
+3. Add New Value In Vector.
+4. Search Value In Vector.
+5. Sort All Values In Ascending Order In Vector.
+6. Sort All Values In Descending Order In Vector.
+7. Find Max Value In Vector.
+8. Find Min Value In Vector.
+9. Update Value In Vector.
+10. Delete Value In Vector.
+*/
+
+
+import java.util.Vector;
+import java.util.*;
+
+public class VectorOperations
+{
+	public static void main(String x[])
+	{
+		Vector v=new Vector();
+		Scanner sc=new Scanner(System.in);
+		do{
+			System.out.println("1. Add 10 Values In Vector.");
+			System.out.println("2. Display All Values In Vector.");
+			System.out.println("3. Add New Value In Vector.");
+			System.out.println("4. Search Value In Vector.");
+			System.out.println("5. Sort All Values In Ascending Order In Vector.");
+			System.out.println("6. Sort All Values In Descending Order In Vector.");
+			System.out.println("7. Find Max Value In Vector.");
+			System.out.println("8. Find Min Value In Vector.");
+			System.out.println("9. Update Value In Vector.");
+			System.out.println("10. Delete Value In Vector.");
+			
+			System.out.println("Enter your choice : ");
+			int choice=sc.nextInt();
+			
+			switch(choice)
+			{
+				case 1:
+					System.out.println("Add elements in collection");
+					int value=sc.nextInt();
+					boolean b=v.add(value);
+					if(b)
+					{
+						System.out.println("Element added ");
+					}else{
+						System.out.println("Element not added");
+					}
+				break;
+				case 2:
+					System.out.println("Display All values in vector");
+					Iterator i=v.iterator();
+					while(i.hasNext())
+					{
+						Object obj=i.next();
+						System.out.println(obj);
+					}
+				break;
+				case 3:
+					System.out.println("Add new value in vector");
+					int newValue=sc.nextInt();
+					 b=v.add(newValue);
+					if(b)
+					{
+						System.out.println("New element added");
+					}else{
+						System.out.println("Element not added");
+					}
+				break;
+				case 4:
+					System.out.println("Search value in vector");
+					int searchValue=sc.nextInt();
+					
+					b=v.contains(searchValue);
+					if(b)
+					{
+						System.out.println("Value found : " + searchValue);
+					}else{
+						System.out.println("Value not found : " + searchValue);
+					}
+				break;
+				case 5:
+					System.out.println("Sorted value in ascending order");
+					i=v.iterator();
+					while(i.hasNext())
+					{
+						Object obj=i.next();
+						System.out.println(obj);
+					}
+					for(int j=0;j<v.size();j++)
+					{
+						for(int k=j+1;k<v.size();k++)
+						{
+							Object prev=v.get(j);
+							Object next=v.get(k);
+							
+							if((int)prev>(int)next)
+							{
+								v.set(j,next);
+								v.set(k,prev);
+							}
+						}
+					}
+					System.out.println("After sorting ");
+					i=v.iterator();
+					while(i.hasNext())
+					{
+						Object obj=i.next();
+						System.out.println(obj);
+					}
+				break;
+				case 6:
+					System.out.println("Sorted value in descending order");
+					i=v.iterator();
+					while(i.hasNext())
+					{
+						Object obj=i.next();
+						System.out.println(obj);
+					}
+					for(int j=0;j<v.size();j++)
+					{
+						for(int k=j+1;k<v.size();k++)
+						{
+							Object prev=v.get(j);
+							Object next=v.get(k);
+							
+							if((int)prev<(int)next)
+							{
+								v.set(j,next);
+								v.set(k,prev);
+							}
+						}
+					}
+					System.out.println("After sorting ");
+					i=v.iterator();
+					while(i.hasNext())
+					{
+						Object obj=i.next();
+						System.out.println(obj);
+					}
+				break;
+				case 7:
+					Object max=v.get(0);
+					for(int m=1;m<v.size();m++)
+					{
+						if((int)v.get(m)>(int)max)
+						{
+							max=v.get(m);
+						}
+					}
+					System.out.println("MAx value is : " + max);
+				break;
+				case 8:
+					Object min=v.get(0);
+					for(int n=1;n<v.size();n++)
+					{
+						if((int)v.get(n)< (int)min)
+						{
+							min=v.get(n);
+						}
+					}
+					System.out.println("MAx value is : " + min);
+				break;
+				case 9:
+					System.out.println("Enter the value to update");
+					Object val=sc.nextInt();
+					
+					System.out.println("ENter value which you want to upadte");
+					Object updateVal=sc.nextInt();
+					
+					int index=v.indexOf(val);
+					if(index!=-1)
+					{
+						v.set(index,updateVal);
+						System.out.println("Value updated");
+					}
+				break;
+				case 10:
+					 System.out.print("Enter value to delete: ");
+					val=sc.nextInt();
+					
+					index=v.indexOf(val);
+					if(index!=-1)
+					{
+						Object obj=v.remove(index);
+						System.out.println("Element is removed from vector : " + obj);
+					}
+						
+				break;
+				case 11:
+					 System.out.println("Exiting program...");
+				break;
+				default:
+					System.out.println("Wrong choice");
+				break;	
+			}
+		}
+		while(true);
+	}
+}

@@ -1,0 +1,85 @@
+/*Q3. Create a menu-driven program that demonstrates various methods of the
+Wrapper classes:
+• Convert a Double wrapper object to a string.
+• Convert a string into an integer.
+• Convert a String into a wrapper object of type Integer.
+• Convert the int value of an Integer object.
+*/
+
+import java.util.*;
+
+public class WrapperClassMenuDriven
+{
+	public static void main(String x[])
+	{
+		Scanner sc=new Scanner(System.in);
+		do{
+			System.out.println("Case 1: Converting a double wrapper object to a string");
+			System.out.println("Case 2: Convert a string into an integer.");
+			System.out.println("Case 3: Convert a String into a wrapper object of type Integer.");
+			System.out.println("Case 4: Convert the int value of an Integer object.");
+			
+			System.out.println("Enter your choice");
+			int choice=sc.nextInt();
+		
+		switch(choice)
+		{
+			case 1:
+				System.out.println("Case 1: Converting a double wrapper object to a string");
+				System.out.println("Enter doouble value");
+				Double doubleValue=sc.nextDouble();
+				String str=doubleValue.toString();
+				System.out.println("----------------------------------------------");
+				System.out.println("Double to String " + str);
+				System.out.println("----------------------------------------------");
+			break;
+			case 2:
+			try{
+				sc.nextLine();
+				System.out.println("Case 2: Convert a string into an integer.");
+				System.out.println("Enter string ");
+				String str1=sc.nextLine();
+				int intStr=Integer.parseInt(str1);
+				System.out.println("----------------------------------------------");
+				System.out.println("Converted String into integer : " + intStr);
+				System.out.println("----------------------------------------------");
+			}catch(NumberFormatException ex){
+				System.out.println("Error is : " + ex);
+			}
+			break;
+			case 3:
+			try{
+				sc.nextLine();
+				System.out.println("Case 3: Convert a String into a wrapper object of type Integer.");
+				System.out.println("Enter string to convert into wrapper int type");
+				String str2=sc.nextLine();
+				int strInt=Integer.valueOf(str2);
+				System.out.println("----------------------------------------------");
+				System.out.println("Converted string into wrapper int type : " + strInt);
+				System.out.println("----------------------------------------------");
+			}catch(NumberFormatException ex){
+				System.out.println("Error is : " + ex);
+			}
+			break;
+			case 4:
+				System.out.println("Case 4: Convert the int value of an Integer object.");
+				System.out.println("Enter integer value");
+				Integer a=sc.nextInt();
+				int b=a.intValue();
+				System.out.println("----------------------------------------------");
+				System.out.println("COnverted int value of integer object : " + b);
+				System.out.println("----------------------------------------------");
+				
+			break;
+			case 5:
+				System.out.println("Exit...");
+			break;
+			default:
+			System.out.println("----------------------------------------------");
+				System.out.println("Invalid input");
+				System.out.println("----------------------------------------------");
+		}
+	}while(true);
+		
+	}
+}
